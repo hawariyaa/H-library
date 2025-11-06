@@ -27,6 +27,7 @@ function NavBar() {
             <input type="text" placeholder='search for book name, author...'/> 
             <i class="fa-solid fa-magnifying-glass" onClick={handlesearch}></i>
             <p>Login/sign-up</p>
+            <i class="fa-solid fa-cart-shopping"></i>
             <i class="fa-solid fa-bars"></i>
         </div>
     </div>

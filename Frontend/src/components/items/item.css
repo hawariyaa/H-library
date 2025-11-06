@@ -1,0 +1,9 @@
+.item{
+    width:fit-content;
+    display:flex;
+    flex-direction: column;
+    padding:1em;
+}
+.item img{
+    width: 20vw;
+}
