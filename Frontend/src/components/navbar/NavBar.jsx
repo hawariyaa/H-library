@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './navbar.css'
+import { Link } from 'react-router-dom'
 import searchb from '../../assets/search-b.png'
 import searchw from '../../assets/search-w.png'
 import day from '../../assets/day.png'
@@ -12,6 +13,15 @@ function NavBar() {
     const handlesearch = () =>{
         setsearch(!search)
     }
+    useEffect(()=>{
+      const handleClick = () => {
+       setsearch(!search)
+    }
+    if(search){
+      document.addEventListener('Click', handleClick)
+    }
+    }, [search])
+    
   return (
     <div className='nav-bar'>
         <div className="logo">
@@ -26,7 +36,7 @@ function NavBar() {
             <img src={night} alt="modeicon" />
             <input type="text" placeholder='search for book name, author...'/> 
             <i class="fa-solid fa-magnifying-glass" onClick={handlesearch}></i>
-            <p>Login/sign-up</p>
+            <Link to='/signup'><p>Login/sign-up</p></Link>
             <i class="fa-solid fa-cart-shopping"></i>
             <i class="fa-solid fa-bars"></i>
         </div>
