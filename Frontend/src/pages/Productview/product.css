@@ -1,0 +1,23 @@
+.comment{
+    display:flex;
+    flex-direction:column;
+    padding:3em;
+    gap:1em;
+}
+.comment h1{
+    font-size:25px;
+}
+.comment input{
+    border-bottom:1px solid black;
+    padding:5px;
+    margin-bottom:1em;
+}
+.comment input:focus{
+    outline:none;
+    border-bottom:1px solid black;
+}
+.comment-section{
+      display: flex;
+      flex-direction: column;
+      gap:2em;
+}
