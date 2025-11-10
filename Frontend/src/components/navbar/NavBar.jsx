@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
 import searchb from '../../assets/search-b.png'
@@ -10,35 +10,71 @@ import menuw from '../../assets/menuicon-w.png'
 
 function NavBar() {
     const [search, setsearch] = useState(false)
-    const handlesearch = () =>{
+    const [bar, setbars] = useState(false)
+    const barsRef = useRef(null)
+    const searchbar = useRef(null)
+//e.stopPropagation() is a method used in JavaScript event
+//  handling to prevent an event from bubbling up the DOM tree to parent elements.
+    const handlesearch = (e) =>{
+        e.stopPropagation()
         setsearch(!search)
     }
     useEffect(()=>{
-      const handleClick = () => {
-       setsearch(!search)
-    }
-    if(search){
-      document.addEventListener('Click', handleClick)
-    }
-    }, [search])
+      const handleOutside = (e) => {
+  //the first element bellow is to avoid error and to check if the element exists inside the DOM
+  //e is the click event object, e.target is the actual DOM element that was clicked
+         if(searchbar.current && !searchbar.current.contains(e.target)){
+          setsearch(false)
+         }
+        }
     
+    window.addEventListener('click', handleOutside)
+    return ()=> window.removeEventListener('click', handleOutside)
+   
+    },[])
+  //so why do we have [] dependence, because once the eventlistner mounts on the window then it wiill work forever
+  //when the component unmounts, it will remove the eventlistener from the window keeping it clean
+  //Mounting means React is creating a component and putting it into the DOM for the first time.
+  //The useEffect() hook with no dependencies ([]) runs once, right after it’s added to the DOM.
+  //Unmounting means React is removing a component from the DOM — usually because the user navigated away, or conditional rendering hides it.
+  //so your telling me unless i opened the signup page it is not in the DOM, Until you navigate to that page, the component doesn’t exist in the DOM — it’s not mounted yet.
+  const handleBars = () =>{
+    setbars(!bar)
+  }
+  useEffect(()=>{
+    const handleClose = (e) => {
+      if(barsRef.current && !barsRef.current.contains(e.target) && !searchbar.current.contains(e.target)){
+        setbars(false)
+      }
+    }
+
+    window.addEventListener('click', handleClose)
+    return ()=> window.removeEventListener('click', handleClose)
+  },[])
   return (
     <div className='nav-bar'>
         <div className="logo">
-          <h3>H-library</h3>
+          <Link to='/'><h3>H-library</h3></Link>
           <select name="language" id="">
             <option value="English">English</option>
             <option value="Amharic">አማርኛ</option>        
           </select>
         </div>
-        <div className={`right-side ${search}`}>
+        <div className={`right-side ${search}`} ref={searchbar}> 
             <i class="fa-solid fa-share-nodes"></i>
             <img src={night} alt="modeicon" />
-            <input type="text" placeholder='search for book name, author...'/> 
+            <input type="text" placeholder='search for book name, author...' onClick={(e)=>e.stopPropagation()}/> 
             <i class="fa-solid fa-magnifying-glass" onClick={handlesearch}></i>
             <Link to='/signup'><p>Login/sign-up</p></Link>
             <i class="fa-solid fa-cart-shopping"></i>
-            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-bars" onClick={handleBars}></i>
+        </div>
+        <div className={`menu-bar ${bar} `}>
+          <div className="menu-pages" ref={barsRef} >
+              <Link to='/'><h3>H-library</h3></Link>
+              <Link to='/mybooks'><p>My Books</p></Link> 
+              <p>Sell Books</p>
+          </div>
         </div>
     </div>
   )

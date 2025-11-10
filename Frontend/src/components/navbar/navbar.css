@@ -3,6 +3,7 @@
     align-items:center;
     justify-content:space-between;
     padding: 1em;
+    position:relative;
 }
 .logo{
     display:flex;
@@ -77,4 +78,36 @@ i:hover{
     width:20em;
     opacity:1;
     padding:5px;
+}
+.menu-bar{
+    height:100vh;
+    width:clamp(4em, 30vw, 17em);
+    position:absolute;
+    right:0;
+    top:0;
+    background-color:#68694a;
+    display:flex;
+    justify-content:center;
+    transform: translateX(100%);
+    transition:all 0.4s ease;
+}
+.menu-bar.true{
+    transform:translateX(0);
+}
+.menu-pages{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center; 
+    gap:1em;
+    padding:3em;
+}
+.menu-pages p{
+    color:white;
+    cursor:pointer;
+    font-size:clamp(1em, 2vw, 3em);
+    transition: all 0.3s ease;
+}
+.menu-pages p:hover{
+   color:#24f038;
 }
