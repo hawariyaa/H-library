@@ -4,6 +4,8 @@
     justify-content:space-between;
     padding: 1em;
     position:relative;
+    overflow-x:0;
+    overflow-y:0;
 }
 .logo{
     display:flex;
@@ -82,16 +84,17 @@ i:hover{
 .menu-bar{
     height:100vh;
     width:clamp(4em, 30vw, 17em);
-    position:absolute;
+    position:fixed;
     right:0;
     top:0;
     background-color:#68694a;
     display:flex;
     justify-content:center;
     transform: translateX(100%);
-    transition:all 0.4s ease;
+    transition:all 0.8s ease;
 }
 .menu-bar.true{
+    display:flex;
     transform:translateX(0);
 }
 .menu-pages{

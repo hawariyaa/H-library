@@ -1,24 +1,23 @@
-import React, { useState } from 'react'
-import {FaStar} from 'react-icons/fa'
+import React, {useState} from 'react'
+import { FaStar } from "react-icons/fa";
+
 
 function StarRating() {
-    //we created an array with length of 5, and spread makes the value from empty slot to undefined
-    const [rating, setrating] = useState(null)
-    const [rateColor, setrateColor] = useState(null)
+  const [rate, setrate] = useState(null)
   return (
     <>
-    
-     { ([...Array(5)].map((star, index) => {
-        const currentRate = index + 1
-        return (
-            <label htmlFor="">
-               <input type="radio" name='rate' value={currentRate} onClick={()=>setrating(currentRate)} style={{display:"none"}} />
-               <FaStar color={currentRate <= (rateColor || rating) ? "yellow" : "grey"}  style={{cursor:"pointer"}}
-                onClick={()=>setrateColor(currentRate)}
-               />
-            </label>
-             )
-        }))}
+        {[...Array(5)].map((star, index) => {
+          let currentRate = index + 1
+            return(
+              
+              <label key={index}>
+                 <input type="radio"name='star' value={currentRate} onClick={()=>setrate(currentRate)} hidden />
+                 <FaStar color={currentRate <= rate ? 'yellow': 'grey'} style={{cursor:"pointer"}} />
+
+              </label>
+
+            )
+        })}
     </>
   )
 }

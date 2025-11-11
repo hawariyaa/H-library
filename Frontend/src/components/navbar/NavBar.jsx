@@ -73,7 +73,7 @@ function NavBar() {
           <div className="menu-pages" ref={barsRef} >
               <Link to='/'><h3>H-library</h3></Link>
               <Link to='/mybooks'><p>My Books</p></Link> 
-              <p>Sell Books</p>
+              <Link to='/sellbooks'><p>Sell Books</p></Link>
           </div>
         </div>
     </div>
