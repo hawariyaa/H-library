@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './productDisplay.css'
 import StarRating from './StarRating'
+import { BookContext } from '../../context/BookContext'
 
-function ProductDisplay({image, name, Author, Discription, category, Edition, Language, File, contentType, year, publisher, page, ISBN, price}) {
+function ProductDisplay({id, image, name, Author, Discription, category, Edition, Language, File, contentType, year, publisher, page, ISBN, price}) {
+  
+  const {addCart} = useContext(BookContext)
+  const {cartItem} =useContext(BookContext)
+  console.log(cartItem)
   return (
     <div className='product-display'>
     <div className='product-section'>
@@ -34,7 +39,7 @@ function ProductDisplay({image, name, Author, Discription, category, Edition, La
     </div>
      <div className="buy">
         <p>price: {price} Birr  <button>Buy know</button></p>   
-        <button>Add to cart</button>
+        <button onClick={()=>{addCart(id)}}>Add to cart</button>
     </div>
     </div>
     </div>

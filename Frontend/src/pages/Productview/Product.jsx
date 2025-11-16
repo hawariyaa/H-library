@@ -13,6 +13,7 @@ function Product() {
     <div>
        <NavBar />
         <ProductDisplay 
+      id={book.id}
       image={book.image}
       name={book.name}
       Author={book.Author}

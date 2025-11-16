@@ -3,6 +3,8 @@ import { FaStar } from "react-icons/fa";
 
 
 function StarRating() {
+  //we created an array with length of 5, and spread makes the value from empty slot to undefined
+
   const [rate, setrate] = useState(null)
   return (
     <>
