@@ -9,6 +9,7 @@ import Signup from './pages/Signup/Signup'
 import Product from './pages/Productview/Product'
 import MyBooks from './pages/MYBooks/MyBooks'
 import SellBooks from './pages/SellBooks/SellBooks'
+import Cart from './pages/cart/cart'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
         <Route path='/productview/:id' element={<Product />} />
         <Route path='/mybooks' element={<MyBooks />} />
         <Route path='/sellbooks' element={<SellBooks />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     
   )

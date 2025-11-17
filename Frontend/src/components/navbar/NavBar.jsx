@@ -66,7 +66,7 @@ function NavBar() {
             <input type="text" placeholder='search for book name, author...' onClick={(e)=>e.stopPropagation()}/> 
             <i class="fa-solid fa-magnifying-glass" onClick={handlesearch}></i>
             <Link to='/signup'><p>Login/sign-up</p></Link>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <Link to='/cart'><i class="fa-solid fa-cart-shopping"></i></Link> 
             <i class="fa-solid fa-bars" onClick={handleBars}></i>
         </div>
         <div className={`menu-bar ${bar} `}>

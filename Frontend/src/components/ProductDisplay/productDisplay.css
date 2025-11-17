@@ -1,6 +1,8 @@
 .product-display{
     display:flex;
     flex-direction:column;
+    overflow:hidden;
+    position:relative;
 }
 .product-section{
     display:flex;
@@ -65,4 +67,21 @@
     color:white;
     background-color:#c27b51;
     transform:translate(5px, -4px);
+}
+.toastbox button{
+    padding:5px 15px;
+    background-color:green;
+    cursor:pointer;
+    border-radius:5px;
+   
+}
+.toastbox{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    transform:translateX(20em);
+    transition: all 0.5s ease;
+}
+.toastbox.true{
+    transform:translateX(0);
 }

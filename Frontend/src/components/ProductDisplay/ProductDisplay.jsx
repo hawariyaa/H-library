@@ -1,13 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './productDisplay.css'
 import StarRating from './StarRating'
 import { BookContext } from '../../context/BookContext'
+import { BsCart3 } from "react-icons/bs";
 
 function ProductDisplay({id, image, name, Author, Discription, category, Edition, Language, File, contentType, year, publisher, page, ISBN, price}) {
   
-  const {addCart} = useContext(BookContext)
-  const {cartItem} =useContext(BookContext)
-  console.log(cartItem)
+  const {addCart, cartItem, toast} = useContext(BookContext)
+  
+  
   return (
     <div className='product-display'>
     <div className='product-section'>
@@ -40,7 +41,10 @@ function ProductDisplay({id, image, name, Author, Discription, category, Edition
      <div className="buy">
         <p>price: {price} Birr  <button>Buy know</button></p>   
         <button onClick={()=>{addCart(id)}}>Add to cart</button>
+    </div> 
     </div>
+    <div className={`toastbox ${toast}`}>
+      <button><BsCart3 />Successfuly Added to cart!</button>
     </div>
     </div>
   )
