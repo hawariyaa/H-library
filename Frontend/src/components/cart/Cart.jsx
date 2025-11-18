@@ -4,13 +4,15 @@ import NavBar from '../navbar/NavBar'
 import { BookContext } from '../../context/BookContext'
 import Remove from '../../assets/cross_icon.png'
 import cart from '../../pages/cart/cart'
+import {DarkMode} from '../../context/DarkMode'
+
 
 function Cart() {
-
+  const {Dark} = useContext(DarkMode)
   const {cartItem,removecart, popularbooks} = useContext(BookContext)
 
   return (
-    <div className='cartItem'>
+    <div className={`cartItem ${Dark}`}>
        <NavBar />
        <div className="cart">
           <p>Books</p>

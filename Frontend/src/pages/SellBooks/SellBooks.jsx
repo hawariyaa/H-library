@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import NavBar from '../../components/navbar/NavBar'
 import './sellbooks.css'
 import cloud from '../../assets/cloud.png'
+import { DarkMode } from '../../context/DarkMode'
 
 function SellBooks() {
+  const {Dark} = useContext(DarkMode)
   return (
-    <div className='sellbooks-section'>
+    <div className={`sellbooks-section ${Dark}`}>
       <NavBar />
       <div className="sellbooks">
         <h1>Sell you're own Books</h1>

@@ -4,6 +4,10 @@
     padding:3em;
     gap:2em;
 }
+.sellbooks-section.true{
+    background-color:black;
+    color:white;
+}
 .sellbooks input{
     width:20em;
     border:1px solid black;
@@ -17,6 +21,9 @@
 }
 .sellbooks .sell-each input:focus{
     border:1px solid #fcba03;
+}
+.sellbooks-section.true .sellbooks .sell-each input{
+    border:1px solid white;
 }
 .sell-each{
     display:flex;

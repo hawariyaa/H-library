@@ -15,6 +15,10 @@
     border-radius:10px;
     background-color:white;
 }
+.newsignup.true{
+    background-color:black;
+    color:white;
+}
 .signup h1{
     font-size:clamp(2em, 5vw, 10em);
 }
@@ -49,6 +53,9 @@
 .login input{
     padding: 5px;
     border:1px solid black;
+}
+.newsignup.true .login input{
+    border:1px solid white;
 }
 .newsignup button{
     font-size:16px;

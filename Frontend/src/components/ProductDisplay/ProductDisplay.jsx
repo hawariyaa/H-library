@@ -3,14 +3,15 @@ import './productDisplay.css'
 import StarRating from './StarRating'
 import { BookContext } from '../../context/BookContext'
 import { BsCart3 } from "react-icons/bs";
+import { DarkMode } from '../../context/DarkMode';
 
 function ProductDisplay({id, image, name, Author, Discription, category, Edition, Language, File, contentType, year, publisher, page, ISBN, price}) {
-  
+  const {Dark} = useContext(DarkMode)
   const {addCart, cartItem, toast} = useContext(BookContext)
   
   
   return (
-    <div className='product-display'>
+    <div className={`product-display ${Dark}`}>
     <div className='product-section'>
        <img src={image} alt="product-image" />
        <div className="details">

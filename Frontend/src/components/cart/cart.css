@@ -6,6 +6,10 @@
     padding-top:2em;
     padding-left:2em;
 }
+.cartItem.true{
+    background-color:black;
+    color:white;
+}
 #bookimage{
     width:6em;
 }

@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './signup.css'
 import { GoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
+import { DarkMode } from '../../context/DarkMode'
 
 
 function Signup() {
+    const {Dark} = useContext(DarkMode)
     const [login, setlogin] = useState('signup')
     const LoginHandler = () => {
         setlogin('login')
@@ -13,9 +15,9 @@ function Signup() {
         setlogin('signup')
     }
   return (
-    <div className='signup'>
-        <div className='newsignup'>
-    <h1>H-LIBRARY</h1>
+    <div className="signup">
+        <div className={`newsignup ${Dark}`}>
+        <h1>H-LIBRARY</h1>
      
         {login === 'signup' ?
         <div className='login'>

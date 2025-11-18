@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
 import searchb from '../../assets/search-b.png'
@@ -7,8 +7,10 @@ import day from '../../assets/day.png'
 import night from '../../assets/night.png'
 import menub from '../../assets/menuicon-b.png'
 import menuw from '../../assets/menuicon-w.png'
+import { DarkMode } from '../../context/DarkMode'
 
 function NavBar() {
+    const {Dark, setDark} = useContext(DarkMode)
     const [search, setsearch] = useState(false)
     const [bar, setbars] = useState(false)
     const barsRef = useRef(null)
@@ -52,7 +54,7 @@ function NavBar() {
     return ()=> window.removeEventListener('click', handleClose)
   },[])
   return (
-    <div className='nav-bar'>
+    <div className={`nav-bar ${Dark}`}>
         <div className="logo">
           <Link to='/'><h3>H-library</h3></Link>
           <select name="language" id="">
@@ -62,7 +64,7 @@ function NavBar() {
         </div>
         <div className={`right-side ${search}`} ref={searchbar}> 
             <i class="fa-solid fa-share-nodes"></i>
-            <img src={night} alt="modeicon" />
+             <img src={Dark ? day :night } alt="modeicon" onClick={()=>setDark(!Dark)} />
             <input type="text" placeholder='search for book name, author...' onClick={(e)=>e.stopPropagation()}/> 
             <i class="fa-solid fa-magnifying-glass" onClick={handlesearch}></i>
             <Link to='/signup'><p>Login/sign-up</p></Link>

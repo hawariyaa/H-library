@@ -4,6 +4,10 @@
     flex-direction: column;
     padding:1em;
 }
+.item.true{
+    background-color:black;
+    color:white;
+}
 .item img{
     width: 20vw;
 }

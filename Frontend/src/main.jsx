@@ -6,15 +6,20 @@ import App from './App.jsx'
 import {BrowserRouter} from 'react-router-dom'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import BookContextProvider from './context/BookContext.jsx'
+import DarkModeProvider from './context/DarkMode.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+    <DarkModeProvider>
      <GoogleOAuthProvider>
       <BookContextProvider>
-          <App />
+        
+              <App />
+        
       </BookContextProvider>
      </GoogleOAuthProvider>
+     </DarkModeProvider>
     </BrowserRouter>   
   </StrictMode>,
 )

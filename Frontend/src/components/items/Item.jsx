@@ -1,5 +1,6 @@
 import React from 'react'
 import './item.css'
+import { DarkMode } from '../../context/DarkMode'
 
 
 function Item({image, category, price}) {

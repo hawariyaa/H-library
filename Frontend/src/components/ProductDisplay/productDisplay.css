@@ -4,6 +4,10 @@
     overflow:hidden;
     position:relative;
 }
+.product-display.true{
+    background-color:black;
+    color:white;
+}
 .product-section{
     display:flex;
 }

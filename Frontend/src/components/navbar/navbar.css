@@ -7,6 +7,10 @@
     overflow-x:0;
     overflow-y:0;
 }
+.nav-bar.true{
+    background-color:black;
+    color:white;
+}
 .logo{
     display:flex;
     align-items:center;
