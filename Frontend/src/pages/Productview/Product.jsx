@@ -2,14 +2,18 @@ import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import popularbooks from '../../assets/books/books'
 import ProductDisplay from '../../components/ProductDisplay/ProductDisplay'
+import Profile from '../../assets/profile/profile'
+import comments from '../../assets/comment/comments'
 import NavBar from '../../components/navbar/NavBar'
 import './product.css'
 import { DarkMode } from '../../context/DarkMode'
+import Comment from '../../components/comment/Comment'
 
 function Product() {
   const {Dark} = useContext(DarkMode)
   const {id} = useParams()
   const book = popularbooks.find((b)=>b.id === parseInt(id))
+  const bookcomment = comments.filter(c => c.book_id === book.id)
         
   return (
     <div>
@@ -35,9 +39,15 @@ function Product() {
         <h1>160 Comments</h1>
         <input type="text" placeholder="Add a comment..."/>
         <div className='comment-section'>
-          {book.comment.map((com, index)=>{
+          {bookcomment.map((comment)=>{
+            let profile = Profile.find(p => p.id === comment.user_id)
             return(
-              <p key={index}>- {com}</p>
+               <Comment 
+               key={comment.id}
+               name={profile.name}
+               image={profile.image}
+               comment={comment.comment}
+               />
             )
           })}
         </div>

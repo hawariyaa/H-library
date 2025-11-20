@@ -109,12 +109,27 @@ i:hover{
     gap:1em;
     padding:3em;
 }
-.menu-pages p{
+.menu-pages .options p{
     color:white;
     cursor:pointer;
     font-size:clamp(1em, 2vw, 3em);
     transition: all 0.3s ease;
 }
-.menu-pages p:hover{
+.menu-pages .options p:hover{
    color:#24f038;
+}
+.menu-pages .profile{
+    display:flex;
+    gap:1em;
+    align-items:center;
+    justify-content:center;
+}
+.menu-pages .profile p{
+    font-size:1.2em;
+    cursor:pointer;
+}
+.menu-pages .profile img{
+    width: 4em;
+    border-radius:50%;
+    cursor:pointer;
 }

@@ -15,6 +15,18 @@
 }
 .right-hero h1{
      font-size:clamp(2em, 8vw, 7em);
+     text-shadow:
+    -5px 1px 0 #c00,
+    -6px 2px 0 #900,
+    -7px 3px 0 #600,
+    -8px 4px 0 #300;
+}
+.hero.true .right-hero h1{
+     text-shadow:
+    -5px 1px 0 #fff,
+    -6px 2px 0 #fff,
+    -7px 3px 0 #fff,
+    -8px 4px 0 #fff;
 }
 .left-hero{
     display:flex;

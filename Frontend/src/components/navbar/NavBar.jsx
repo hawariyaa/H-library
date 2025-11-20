@@ -8,6 +8,7 @@ import night from '../../assets/night.png'
 import menub from '../../assets/menuicon-b.png'
 import menuw from '../../assets/menuicon-w.png'
 import { DarkMode } from '../../context/DarkMode'
+import profile from '../../assets/profile/defaultprofile.gif'
 
 function NavBar() {
     const {Dark, setDark} = useContext(DarkMode)
@@ -73,9 +74,16 @@ function NavBar() {
         </div>
         <div className={`menu-bar ${bar} `}>
           <div className="menu-pages" ref={barsRef} >
-              <Link to='/'><h3>H-library</h3></Link>
-              <Link to='/mybooks'><p>My Books</p></Link> 
-              <Link to='/sellbooks'><p>Sell Books</p></Link>
+             <Link to='/profile'>
+              <div className="profile">
+                 <img src={profile} alt="" />
+                 <p>username</p>
+              </div>
+              </Link>
+              <div className="options">
+                <Link to='/mybooks'><p>My Books</p></Link> 
+                <Link to='/sellbooks'><p>Sell Books</p></Link>
+              </div>
           </div>
         </div>
     </div>
