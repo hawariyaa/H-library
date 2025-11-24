@@ -1,0 +1,52 @@
+.sellbooks{
+    display:flex;
+    flex-direction:column;
+    padding:3em;
+    gap:2em;
+}
+.sellbooks-section.true{
+    background-color:black;
+    color:white;
+}
+.sellbooks input{
+    width:20em;
+    border:1px solid black;
+    padding:5px;
+    border-radius:5px;
+}
+.sellbooks h1{
+    font-size:3em;
+    padding-left:30vw;
+    color:#1b9e11;
+}
+.sellbooks .sell-each input:focus{
+    border:1px solid #fcba03;
+}
+.sellbooks-section.true .sellbooks .sell-each input{
+    border:1px solid white;
+}
+.sell-each{
+    display:flex;
+    align-items:space-between;
+    justify-content:space-between;
+    width:40vw;
+    gap:1em;
+}
+.sellbooks button{
+    cursor:pointer;
+    width:fit-content;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+    margin:1em;
+    padding:0.5em 2em;
+    transition:all 0.4s ease;
+    border: 1px solid #3848fc;
+}
+.sellbooks button:hover{
+    color:white;
+    background-color:#3848fc;
+}
+.sell-each img{
+    width:5em;
+}

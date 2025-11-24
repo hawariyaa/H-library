@@ -1,0 +1,19 @@
+.cart{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content:space-around;
+    align-items:center;
+    padding-top:2em;
+    padding-left:2em;
+}
+.cartItem.true{
+    background-color:black;
+    color:white;
+}
+#bookimage{
+    width:6em;
+}
+#remove_icon{
+    width:15px;
+    cursor:pointer;
+}

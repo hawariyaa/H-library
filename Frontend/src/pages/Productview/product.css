@@ -1,0 +1,31 @@
+.comment{
+    display:flex;
+    flex-direction:column;
+    padding:3em;
+    gap:1em;
+    overflow:hidden;
+}
+.comment.true{
+    background-color:black;
+    color:white;
+}
+.comment h1{
+    font-size:25px;
+}
+.comment input{
+    border-bottom:1px solid black;
+    padding:5px;
+    margin-bottom:1em;
+}
+.comment.true input{
+    border-bottom:1px solid white;
+}
+.comment input:focus{
+    outline:none;
+    border-bottom:1px solid black;
+}
+.comment-section{
+      display: flex;
+      flex-direction: column;
+      gap:2em;
+}

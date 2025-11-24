@@ -1,0 +1,58 @@
+.hero{
+    height:50vh;
+}
+.hero.true{
+    background-color:black;
+    color:white;
+}
+.right-hero{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    padding:10vh;
+    gap: 3em;
+}
+.right-hero h1{
+     font-size:clamp(2em, 8vw, 7em);
+     text-shadow:
+    -5px 1px 0 #c00,
+    -6px 2px 0 #900,
+    -7px 3px 0 #600,
+    -8px 4px 0 #300;
+}
+.hero.true .right-hero h1{
+     text-shadow:
+    -5px 1px 0 #fff,
+    -6px 2px 0 #fff,
+    -7px 3px 0 #fff,
+    -8px 4px 0 #fff;
+}
+.right-hero h1 span{
+    color:#86eb34;
+    text-shadow:
+    -5px 1px 0 #86eb34,
+    -6px 2px 0 #86eb34,
+    -7px 3px 0 #86eb34,
+    -8px 4px 0 #86eb34;
+}
+.left-hero{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    padding:0 0 3em 2.5em;
+    gap:0.6em; 
+}
+.left-hero input{
+    width:80vw;
+    border: 1px solid black;
+    padding: 6px;
+    border-radius:10px;
+}
+.left-hero.true input{
+    border:1px solid white;
+}
+.left-hero p{
+    font-size:1.4em;
+}

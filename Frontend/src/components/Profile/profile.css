@@ -1,0 +1,46 @@
+
+.profile-edit{
+    display:flex;
+    height:40vh;
+    align-items:stretch;
+    justify-content:center;
+    gap:3em;
+    padding:3em;
+}
+
+.profile-edit img{
+   width:8em;
+}
+.edit-profile{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:1em;
+}
+.edit-profile button{
+    border:1px solid black;
+    cursor:pointer;
+    transition:all ease 0.3s;
+    border-radius:5px;
+    align-items:flex-end;
+}
+.edit-profile button:hover{
+    background-color:#468ae3;
+    color:white;
+}
+.Analtics{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2em;
+    padding:1em;
+}
+.analtics{
+    display:flex;
+    flex-direction:column;
+    gap:3em;
+    align-items:center;
+    justify-content:center;
+    padding:3em;
+    border:1px solid #74e7ed;
+}

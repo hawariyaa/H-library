@@ -1,0 +1,82 @@
+.product-display{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    position:relative;
+}
+.product-display.true{
+    background-color:black;
+    color:white;
+}
+.product-section{
+    display:flex;
+}
+.product-section img{
+    width: 40vw;
+    padding: 3em;
+}
+.product-section div{
+    padding: 3em;
+}
+.product-section div h2{
+    font-size: clamp(2em, 4vw, 7em);
+}
+.product-section div p{
+    font-size:17px;
+    padding-bottom:15px;
+}
+.about-book{
+    display:flex;
+    width:50vw;
+    gap: 2em;
+    padding:1em 3em;
+}
+.about-book .part1 p{
+    font-size:18px;
+    padding-bottom:5px;
+}
+.about-book .part2 p{
+    font-size:18px;
+    padding-bottom:5px;
+}
+.details-book{
+    display:flex;
+}
+.details .rating{
+    display:flex;
+    padding: 0;
+    margin:0;
+    gap:3px;
+}
+.details .rating p{
+    padding-right:1em;
+}
+.Ratingbook{
+    display:flex;
+    align-items:flex-start;
+    gap:2em;
+}
+.Ratingbook p{
+    font-size:18px;
+}
+.Rating{
+    display:flex;
+    gap:5px;
+}
+.toastbox button{
+    padding:5px 15px;
+    background-color:green;
+    cursor:pointer;
+    border-radius:5px;
+   
+}
+.toastbox{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    transform:translateX(20em);
+    transition: all 0.5s ease;
+}
+.toastbox.true{
+    transform:translateX(0);
+}

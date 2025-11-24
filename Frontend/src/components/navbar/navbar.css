@@ -1,0 +1,137 @@
+.nav-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 1em;
+    position:relative;
+    overflow-x:0;
+    overflow-y:0;
+}
+.nav-bar.true{
+    background-color:black;
+    color:white;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap: 1em;
+}
+h3{
+    padding: 8px 15px;
+    background-color:#34b7eb;
+    cursor:pointer;
+}
+.right-side{
+    display:flex;
+    align-items:center;
+    gap: 1em;
+}
+img{
+    width: 30px;
+    cursor:pointer;
+    transition:0.4s;
+}
+img:hover{
+    color: #3848fc;
+}
+.right-side i{
+    font-size: 20px;
+    cursor: pointer;
+}
+select{
+    cursor:pointer;
+    font-size: 16px;
+    padding:5px;
+}
+.right-side p{
+    position: relative;
+    cursor:pointer;
+    transition: 0.8s;
+}
+.right-side p::before{
+    content:'';
+    position:absolute;
+    bottom: -3px;
+    left: 0;
+    height: 4px;
+    width: 0;
+    background-color: #3848fc;
+    border-radius:5px;
+    transition: width 0.4s ease;
+}
+.right-side p:hover{
+    color: #3848fc;
+}
+.right-side p:hover::before{
+    width: 100%;
+}
+i{
+    transition: 0.4s;
+}
+i:hover{
+    color: #3848fc;
+}
+.right-side input{
+    border-radius: 5px;
+    font-size:15px;
+    height:35px;
+    width:0;
+    opacity:0;
+    transition: all 0.4s ease;
+}
+.right-side.true input{
+    left:0;
+    width:20em;
+    opacity:1;
+    padding:5px;
+}
+.menu-bar{
+    height:100vh;
+    width:clamp(4em, 30vw, 17em);
+    position:fixed;
+    right:0;
+    top:0;
+    background-color:#68694a;
+    display:flex;
+    justify-content:center;
+    transform: translateX(100%);
+    transition:all 0.8s ease;
+    z-index:1000;
+}
+.menu-bar.true{
+    display:flex;
+    transform:translateX(0);
+    z-index:1000;
+}
+.menu-pages{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center; 
+    gap:1em;
+    padding:3em;
+}
+.menu-pages .options p{
+    color:white;
+    cursor:pointer;
+    font-size:clamp(1em, 2vw, 3em);
+    transition: all 0.3s ease;
+}
+.menu-pages .options p:hover{
+   color:#24f038;
+}
+.menu-pages .profile{
+    display:flex;
+    gap:1em;
+    align-items:center;
+    justify-content:center;
+}
+.menu-pages .profile p{
+    font-size:1.2em;
+    cursor:pointer;
+}
+.menu-pages .profile img{
+    width: 4em;
+    border-radius:50%;
+    cursor:pointer;
+}
