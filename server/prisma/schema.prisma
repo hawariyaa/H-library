@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js" //generates prisma client, can you languges prisma support like js, ts, golang, rust
+}
+
+datasource db {
+  provider = "postgresql" // or "mysql", "sqlite", etc.
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  username String
+  password String 
+  createdDate  DateTime  @default(now())
+  cart Json?
+
+  myBooks PurchasedBook[]
+  sellBooks UploadedBook[]
+  comments  Comments[]
+  rating    Rating[]
+}
+model Book {
+  id Int @id @default(autoincrement())
+  bookname String
+  booklanguage String
+  bookcatagory String?
+  bookEdition String?
+  bookFileType  String?
+  bookYear   Int?
+  bookpublisher  String?
+  bookpagenumber  Int?
+  bookIsbnnumber  String?
+  bookprice   Float
+  bookImage   String
+  bookFile    String 
+  totalRating Float  @default(0)
+}
+model PurchasedBook {
+  id    Int @id @default(autoincrement())
+
+  book    Book @relation(fields: [bookid], references: [id])
+  bookid  Int
+
+  user    User @relation(fields: [userid], references: [id])
+  userid  Int
+
+  PurchasedAt   DateTime   @default(now())
+
+}
+model UploadedBook {
+  id        Int @id @default(autoincrement())
+
+  book       Book @relation(fields: [bookid], references: [id])
+  bookid   Int
+
+  user    User @relation(fields: [userid], references: [id])
+  userid  Int
+
+  uploadedAt  DateTime  @default(now())
+}
+model Comments {
+  id  Int @id @default(autoincrement())
+  comment    String
+
+  user        User   @relation(fields: [commentid], references: [id])
+  userid     Int
+
+  book   Book @relation(fields: [bookid], references: [id])
+  bookid Int
+  
+}
+model Rating {
+  id   Int @id @default(autoincrement())
+  rating   Float
+
+  user       User   @relation(fields: [rateid], references: [id])
+  rateid     Int
+
+  book   Book  @relation(fields: [bookid], references: [id])
+  bookid Int
+  
+}
+
