@@ -1,5 +1,5 @@
 .item{
-    width:fit-content;
+    width:100%;
     display:flex;
     flex-direction: column;
     padding:1em;
@@ -9,5 +9,6 @@
     color:white;
 }
 .item img{
-    width: 20vw;
+    width:100%; /*100% of the div, fill the div*/
+    height:auto; /*height automatically adjust based on its aspect ratio*/
 }

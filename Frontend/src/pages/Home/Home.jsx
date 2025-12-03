@@ -6,15 +6,17 @@ import Hero from '../../components/Hero/Hero'
 import popularbooks from '../../assets/books/books'
 import Item from '../../components/items/Item'
 import { DarkMode } from '../../context/DarkMode'
+import { language } from '../../context/Language'
 
 function Home() {
+  const {lang} = useContext(language)
   const {Dark} = useContext(DarkMode)
   return (
     <>
         <NavBar />
         <Hero  />
         <div className={`most-popular ${Dark}`}>
-           <h2>Most popular</h2>
+           {lang === 'English' ? <h2>Most popular</h2> : <h2>በጣም ታዋቂ</h2>}
            <hr />
         </div>
         <div className={`the-books ${Dark}`}>
@@ -23,7 +25,7 @@ function Home() {
             <Item 
              key={index}
              image={book.image}
-             category={book.category}
+             category={lang ==- 'English' ? book.category : book.categoryA} 
              price={book.price}
             />
             </Link> 

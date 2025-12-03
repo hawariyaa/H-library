@@ -3,6 +3,7 @@ import './signup.css'
 import { GoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
 import { DarkMode } from '../../context/DarkMode'
+import { Link } from 'react-router-dom'
 
 
 function Signup() {
@@ -17,6 +18,7 @@ function Signup() {
   return (
     <div className="signup">
         <div className={`newsignup ${Dark}`}>
+         <Link to='/'><p>Back</p></Link> 
         <h1>H-LIBRARY</h1>
      
         {login === 'signup' ?

@@ -1,5 +1,9 @@
 .hero{
-    height:50vh;
+    min-height:50vh;
+    height:auto;
+}
+.hero h4{
+    font-size:1.3em;
 }
 .hero.true{
     background-color:black;
@@ -12,6 +16,17 @@
     justify-content:center;
     padding:10vh;
     gap: 3em;
+}
+.right-hero-2{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    padding:10vh;
+    gap: 3em; 
+}
+.right-hero-2 h1{
+    font-size:clamp(2em, 8vw, 7em);
 }
 .right-hero h1{
      font-size:clamp(2em, 8vw, 7em);
@@ -28,6 +43,9 @@
     -7px 3px 0 #fff,
     -8px 4px 0 #fff;
 }
+.right-hero-2 span{
+   color:#86eb34;
+}
 .right-hero h1 span{
     color:#86eb34;
     text-shadow:
@@ -41,7 +59,7 @@
     flex-direction:column;
     align-items:flex-start;
     justify-content:flex-start;
-    padding:0 0 3em 2.5em;
+    padding:0 0 0 2.5em;
     gap:0.6em; 
 }
 .left-hero input{

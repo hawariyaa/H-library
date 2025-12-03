@@ -1,5 +1,5 @@
 .most-popular{
-    padding:9em 1.5em 0 1.5em;
+    padding:1em 1.5em 0 1.5em;
 }
 .most-popular.true{
   background-color:black;
@@ -9,10 +9,11 @@
   font-size:clamp(2em, 3vw, 7em);
 }
 .the-books{
-  display:flex;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));/*the responsivness is handled here, 1fr means 1 fraction of the space*/
 }
 .the-books.true{
   background-color:black;
   color:white;
 }
+

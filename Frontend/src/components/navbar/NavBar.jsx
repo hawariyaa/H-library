@@ -9,8 +9,10 @@ import menub from '../../assets/menuicon-b.png'
 import menuw from '../../assets/menuicon-w.png'
 import { DarkMode } from '../../context/DarkMode'
 import profile from '../../assets/profile/defaultprofile.gif'
+import { language } from '../../context/Language'
 
 function NavBar() {
+    const {lang, setlang} = useContext(language)
     const {Dark, setDark} = useContext(DarkMode)
     const [search, setsearch] = useState(false)
     const [bar, setbars] = useState(false)
@@ -57,8 +59,8 @@ function NavBar() {
   return (
     <div className={`nav-bar ${Dark}`}>
         <div className="logo">
-          <Link to='/'><h3>H-library</h3></Link>
-          <select name="language" id="">
+          {lang === 'English' ? <Link to='/'><h3>H-library</h3></Link> : <Link to='/'><h3>ኤች-ላይብረሪ</h3></Link>}
+          <select name="language" id="" onChange={(e)=>setlang(e.target.value)}>
             <option value="English">English</option>
             <option value="Amharic">አማርኛ</option>        
           </select>
@@ -68,7 +70,7 @@ function NavBar() {
              <img src={Dark ? day :night } alt="modeicon" onClick={()=>setDark(!Dark)} />
             <input type="text" placeholder='search for book name, author...' onClick={(e)=>e.stopPropagation()}/> 
             <i class="fa-solid fa-magnifying-glass" onClick={handlesearch}></i>
-            <Link to='/signup'><p>Login/sign-up</p></Link>
+            {lang === 'English' ? <Link to='/signup'><p>Login/sign-up</p></Link> : <Link to='/signup'><p>ይግቡ/ይመዝገቡ</p></Link>}
             <Link to='/cart'><i class="fa-solid fa-cart-shopping"></i></Link> 
             <i class="fa-solid fa-bars" onClick={handleBars}></i>
         </div>

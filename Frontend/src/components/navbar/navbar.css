@@ -11,6 +11,10 @@
     background-color:black;
     color:white;
 }
+.nav-bar.true select option{
+    background-color:black;
+    color:white;
+}
 .logo{
     display:flex;
     align-items:center;
