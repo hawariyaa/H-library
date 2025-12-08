@@ -2,42 +2,19 @@ import express from 'express'
 const router = express.Router()
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
+import Users from './userschema.js'
+import rateLimit from 'express-rate-limit'
 dotenv.config()
-secret_key = process.env.SECRET_KEY
+const secret_key = process.env.SECRET_KEY
 
-const  Users = mongoose.model('users', {
-    username: {
-        type: String,
-        required: true,
-    },
-    email: {
-        type:String,
-        required: true,
-        unique: true,
-    },
-    password: {
-        type: String,
-        required: true,
-    },
-    cart: [
-        {
-         bookId: { type: mongoose.Schema.Types.ObjectId, ref: "Book" },
-         quantity: { type: Number, default: 1 }
-        }
-    ],
-    uploads: [
-         { type: mongoose.Schema.Types.ObjectId, ref: "Book" }
-    ],
-    purchasedBooks: [
-        { type: mongoose.Schema.Types.ObjectId, ref: "Book" }
-    ],
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
+const ratelimit = rateLimit({
+    windowMs: 1000 * 60 * 60,
+    max:5,
+    message: 'Too many signups!'
 })
-
-router.post("/user", async (req, res)=> {
+router.post("/", ratelimit, async (req, res)=> {
     try {
         const {username, email, password} = req.body
         if(!username || !email || !password){
@@ -64,12 +41,15 @@ router.post("/user", async (req, res)=> {
         await users.save()
         const Data = {
             user: {
-                id: users.id
+                id: users._id
             }
         }
-        const token = jwt.sign(Data, secret_key)
+        const token = jwt.sign(Data, secret_key, {
+            expiresIn: '1D'
+        })
         res.json({
             success: true,
+            message: 'signup successful',
             token: token
         })
 
