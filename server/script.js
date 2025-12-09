@@ -11,6 +11,7 @@ import Users from './routes/Auth/userschema.js'
 import signupRoute from  './routes/Auth/signup.js'
 import googleRoute from './routes/Auth/google.js'
 import loginRoute from './routes/Auth/login.js'
+import Bookupload from './routes/Books/uploadBooks.js'
 
 dotenv.config()
 const port = process.env.PORT
@@ -40,6 +41,7 @@ app.use('/signup', signupRoute)//so if you put here /user and also on the routes
 //the other thing to do is to make it here /user and in the routes make it only / or empty
 app.use('/google', googleRoute)
 app.use('/login', loginRoute)
+app.use('/bookupload', Bookupload )
 
 app.listen(port, ()=> {
     console.log("server running!")
