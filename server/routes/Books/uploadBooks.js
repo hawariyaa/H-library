@@ -4,17 +4,8 @@ import Books from './Bookschema.js'
 import multer from 'multer'
 import path from 'path'
 
-const storage = multer.diskStorage({
-    destination: '../../uploads/Bookimage',
-    filename: (req,file,cb)=>{
-       return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-})
-const upload = multer({storage: storage})
 
-//upload.single("image")  this means expect a single file being uploaded with a name = image
-//like the inputs have names right, <input type='file' name='image'/>
-router.post('/', upload.single("image"), async (req, res) => {
+router.post('/',async (req, res) => {
     try{
      const {bookname, booklanguage, Edition, category, fileType, bookyear, publisher, pages, ISBN, price, image} = req.body
      const books = new Books({

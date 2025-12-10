@@ -12,6 +12,8 @@ import signupRoute from  './routes/Auth/signup.js'
 import googleRoute from './routes/Auth/google.js'
 import loginRoute from './routes/Auth/login.js'
 import Bookupload from './routes/Books/uploadBooks.js'
+import uploadimage from './routes/Books/uploadimage.js'
+import uploadfile from './routes/Books/Bookfile.js'
 
 dotenv.config()
 const port = process.env.PORT
@@ -42,10 +44,21 @@ app.use('/signup', signupRoute)//so if you put here /user and also on the routes
 app.use('/google', googleRoute)
 app.use('/login', loginRoute)
 app.use('/bookupload', Bookupload )
+//Whenever someone visits a URL that starts with /uploads/Bookimage, 
+//serve files from the uploads/Bookimage folder on your computer.”
+//This tells Express: “Make the folder uploads/Bookimage publicly accessible.”
+//so basically what we do is use the uploadimage route upload image in the folder and get a url
+//then put the url when uploading the book, litrally paste the url and put it in the database
+app.use('/uploads/Bookimage', express.static('uploads/Bookimage'))
+app.use('/uploadimage', uploadimage)
+
+app.use('/uploads/Bookfile', express.static('uploads/Bookfile'))
+app.use('/uploadfile', uploadfile)
 
 app.listen(port, ()=> {
     console.log("server running!")
 })//put the listen after the middleware this will allow you to prevent wired timing issues
+
 
 
 

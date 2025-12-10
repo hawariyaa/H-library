@@ -34,6 +34,10 @@ const Bookschema = new mongoose.Schema({
     image: {
         type: String
     },
+    downloads: {
+        type: Number,
+        default: 0
+    },
     file:{
         type: String
     },
