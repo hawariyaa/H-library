@@ -7,6 +7,7 @@ import rateLimit from 'express-rate-limit'
 import path from 'path'
 import dotenv from 'dotenv'
 import Users from './routes/Auth/userschema.js'
+import Comment from './routes/comments/commentschema.js'
 
 import signupRoute from  './routes/Auth/signup.js'
 import googleRoute from './routes/Auth/google.js'
@@ -14,6 +15,8 @@ import loginRoute from './routes/Auth/login.js'
 import Bookupload from './routes/Books/uploadBooks.js'
 import uploadimage from './routes/Books/uploadimage.js'
 import uploadfile from './routes/Books/Bookfile.js'
+import addComment from './routes/comments/addcomment.js'
+import fetchComment from './routes/comments/fetchComment.js'
 
 dotenv.config()
 const port = process.env.PORT
@@ -54,6 +57,9 @@ app.use('/uploadimage', uploadimage)
 
 app.use('/uploads/Bookfile', express.static('uploads/Bookfile'))
 app.use('/uploadfile', uploadfile)
+
+app.use('/addcomment', addComment )
+app.use('/fetchcomment', fetchComment )
 
 app.listen(port, ()=> {
     console.log("server running!")
