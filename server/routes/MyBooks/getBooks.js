@@ -1,6 +1,6 @@
 import express from 'express'
 const router = express.Router()
-import Users from '../Auth/userschema'
+import Users from '../Auth/userschema.js'
 
 router.get('/', async(req, res)=>{
     try{

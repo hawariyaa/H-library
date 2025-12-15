@@ -17,6 +17,8 @@ import uploadimage from './routes/Books/uploadimage.js'
 import uploadfile from './routes/Books/Bookfile.js'
 import addComment from './routes/comments/addcomment.js'
 import fetchComment from './routes/comments/fetchComment.js'
+import payment from './routes/payment/payment.js'
+import fetchall from './routes/Auth/fetchall.js'
 
 dotenv.config()
 const port = process.env.PORT
@@ -60,6 +62,10 @@ app.use('/uploadfile', uploadfile)
 
 app.use('/addcomment', addComment )
 app.use('/fetchcomment', fetchComment )
+
+app.use('/fetchall', fetchall)
+
+app.use('/payment', payment)
 
 app.listen(port, ()=> {
     console.log("server running!")
