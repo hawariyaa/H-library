@@ -19,6 +19,9 @@ import addComment from './routes/comments/addcomment.js'
 import fetchComment from './routes/comments/fetchComment.js'
 import payment from './routes/payment/payment.js'
 import fetchall from './routes/Auth/fetchall.js'
+import callback from './routes/payment/callback.js'
+import allbooks from './routes/Books/getallbooks.js'
+import allpurchased from './routes/payment/allpurchased.js'
 
 dotenv.config()
 const port = process.env.PORT
@@ -64,8 +67,11 @@ app.use('/addcomment', addComment )
 app.use('/fetchcomment', fetchComment )
 
 app.use('/fetchall', fetchall)
+app.use('/allbooks', allbooks)
+app.use('/allpurchased', allpurchased)
 
 app.use('/payment', payment)
+app.use('/callback', callback)
 
 app.listen(port, ()=> {
     console.log("server running!")

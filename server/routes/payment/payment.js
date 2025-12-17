@@ -39,25 +39,22 @@ router.post('/', async (req, res)=>{
   const tx_ref = `order_${userid}_${Date.now()}`
   const response = await chapa.initialize({
   first_name: user.username,
-  last_name: user.username,
-  email: user.email,
   phone_number: '0911121314',
   currency: 'ETB',
   amount: amount,
   tx_ref: tx_ref,
   callback_url: 'https://google.com',
-  return_url: 'https://example.com/',
   customization: {
     title: 'Book Purchase',
     description: 'checkOut',
   },
-});
+}); 
 
-console.log(response)
+
 return res.status(200).json({
     success: true,
     message: response,
-    tx_ref: tx_ref
+    tx_ref: tx_ref,
 })
   }
   catch(error){
