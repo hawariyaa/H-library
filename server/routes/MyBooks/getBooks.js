@@ -1,35 +1,35 @@
 import express from 'express'
 const router = express.Router()
-import Users from '../Auth/userschema.js'
+import Purchased from '../payment/purchasedschema.js'
 
-router.get('/', async(req, res)=>{
-    try{
-     const {userid} = req.query
-     if(!userid){
-        return res.status(400).json({
-            success: false,
-            message: "Userid is needed!"
-        })
-     }
-     const user = await Users.findById(userid)
-     if(!user){
-        return res.status(404).json({
-            success: false,
-            message: "User not found!"
-        })
-     }
-     return res.status(200).json({
-        success: true,
-        message: "Successfully fetched purchased Books!",
-        Books: user.purchasedBooks
-     })
+router.get('/', async (req, res) => {
+  try {
+    const { userid } = req.query
+
+    if (!userid) {
+      return res.status(400).json({
+        success: false,
+        message: "Userid is required"
+      })
     }
-    catch(error){
-        return res.status(500).json({
-            success: false,
-            message: "Server Error!"
-        })
-    }
+
+    const purchases = await Purchased.find({
+      userid,
+      paid: true
+    })
+    const BookId = purchases.map(p => p.bookid)
+    return res.status(200).json({
+      success: true,
+      books: BookId
+    })
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Server Error",
+      error: error.message
+    })
+  }
 })
 
 export default router

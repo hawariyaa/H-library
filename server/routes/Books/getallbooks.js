@@ -3,7 +3,7 @@ const router = express.Router()
 import Books from './Bookschema.js'
 
 
-router.post('/', async (req, res)=>{
+router.get('/', async (req, res)=>{
     try{
     const allbooks = await Books.find()
     return res.status(200).json({

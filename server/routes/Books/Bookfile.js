@@ -21,7 +21,7 @@ const upload = multer({storage: storage})
 router.post('/', upload.single("file"),async(req, res)=>{
      res.json({
         succuess: true,
-        img_url: `http://localhost:${port}/uploads/Bookfile/${req.file.filename}`
+        file_url: `http://localhost:${port}/uploads/Bookfile/${req.file.filename}`
      })
 })
 

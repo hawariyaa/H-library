@@ -22,7 +22,7 @@ router.post('/', async (req, res)=>{
        }
        const verify = await chapa.verify({tx_ref})
        const paid =  verify.status === "success" &&
-  verify.data.status === "success" === "success" ? true : false
+  verify.data.status === "success" ? true : false
        const purchase = await Purchased.findOne({tx_ref})
        if(!purchase){
          const purchase = new Purchased ({
@@ -31,7 +31,7 @@ router.post('/', async (req, res)=>{
             bookid: bookid,
             paid: paid
          })
-         purchase.save()
+         await purchase.save()
        }
        else{
          purchase.paid = paid
